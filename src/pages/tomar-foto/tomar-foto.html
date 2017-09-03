@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button (click)="onButtonClicked()" style="color:danger">
+      Atras
+    </button>
+
+    <ion-title></ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content  class="no-scroll">
+
+<img [src]="image" *ngIf="image" style="padding:10%"/>
+
+  <div class="botones" style="position:absolute; bottom: -0.8%; width:100%">
+    <button ion-button block (click)="getPicture()"
+    style="height:100px; background-color: #fF4040">
+    <img src="img/camara.png" alt="camara" style="width:35%;">
+   </button>
+
+
+</div>
+</ion-content>

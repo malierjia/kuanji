@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController} from 'ionic-angular';
+import { IonicPage} from 'ionic-angular';
+import {TomarFotoPage} from '../tomar-foto/tomar-foto';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+constructor(public navCtrl: NavController,
+  public modalCtrl: ModalController) {}
 
+public onButtonClicked():  void{
+    let modal= this.modalCtrl.create(TomarFotoPage);
+    modal.present();
   }
-
 }

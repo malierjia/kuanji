@@ -1,17 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
+    <ion-title>
+  </ion-title>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding id="homecontent" class="no-scroll" text-center>
+
+  <ul style="padding-top: 5%; margin: 0 auto;">
+    <img src="http://images.clipartpanda.com/white-stars-clipart-RTdoMMRT9.png" alt="estrella"
+    style="width:5%;" >
+    <img src="http://images.clipartpanda.com/white-stars-clipart-RTdoMMRT9.png" alt="estrella"
+    style="width:5%;">
+    <img src="http://images.clipartpanda.com/white-stars-clipart-RTdoMMRT9.png" alt="estrella"
+     style="width:5%;">
+    <img src="http://images.clipartpanda.com/white-stars-clipart-RTdoMMRT9.png" alt="estrella"
+    style="width:5%;">
+    <img src="http://images.clipartpanda.com/white-stars-clipart-RTdoMMRT9.png" alt="estrella"
+    style="width:5%;">
+  </ul>
+
+<div class="logo" style="">
+<img src="img/KuanjiLogo.png" alt="logo" style="margin:0 auto; width:65%;">
+</div>
+
+<div class="botones">
+  <button ion-button block (click)="onButtonClicked()" color ="danger" style="height:100px; padding: 5%">
+    <img src="img/camara.png" alt="camara" style="width:35%;">
+  </button>
+  <button ion-button block (click)="onButtonClicked()" style="height:100px; padding: 5%">
+   <img src="img/galeria.png" alt="galeria" style="width:35%;"></button>
+</div>
+
 </ion-content>
