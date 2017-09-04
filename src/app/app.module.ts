@@ -12,10 +12,6 @@ import {CartatagsPage} from '../pages/cartatags/cartatags';
 import {CatalogoPage} from '../pages/catalogo/catalogo';
 import {FelicidadesPage} from '../pages/felicidades/felicidades';
 import {TomarFotoPage} from '../pages/tomar-foto/tomar-foto';
-
-
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 

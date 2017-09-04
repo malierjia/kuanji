@@ -13,6 +13,7 @@ export class HomePage {
 constructor(public navCtrl: NavController,
   public modalCtrl: ModalController) {}
 
+//cambio de pagina a camara
 public onButtonClicked():  void{
     let modal= this.modalCtrl.create(TomarFotoPage);
     modal.present();

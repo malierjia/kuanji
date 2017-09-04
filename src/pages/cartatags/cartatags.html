@@ -1,20 +1,16 @@
-<!--
-  Generated template for the CartatagsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- hola -->
 
 <ion-header>
 
   <ion-navbar>
+    <button ion-button (click)="onButtonClicked()" style="color:danger">
+      Atras
+    </button>
+
     <ion-title>cartatags</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <img [src]="image" *ngIf="image" style="padding:10%"/>
 </ion-content>

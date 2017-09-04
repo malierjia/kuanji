@@ -14,11 +14,16 @@
 
 <img [src]="image" *ngIf="image" style="padding:10%"/>
 
-  <div class="botones" style="position:absolute; bottom: -0.8%; width:100%">
-    <button ion-button block (click)="getPicture()"
-    style="height:100px; background-color: #fF4040">
-    <img src="img/camara.png" alt="camara" style="width:35%;">
+  <div padding class="botones" style="position:absolute; bottom: -0.8%; width:100%">
+
+    <button ion-button (click)="getPicture()"
+    style="height:100px; background-color: #fF4040; width: 48%">
+    <img src="img/camara.png" alt="camara" style="width:60%;">
    </button>
+   <button ion-button (click)="onButtonClicked()"
+   style="height:100px; background-color: #FCBE00; width: 48%">
+   <img src="icon ion-checkmark-round" style="width:50%;">
+  </button>
 
 
 </div>
