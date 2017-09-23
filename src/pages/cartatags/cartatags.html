@@ -1,27 +1,67 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button (click)="cerrar_modal()" style="color:danger">
-      Atras
+    <ion-row no-padding >
+<ion-col col-3>
+    <button ion-button (click)="cerrar_modal()" style="color: danger;">
+  Atras
     </button>
+  </ion-col>
+
+      <ion-col col-9>
+      <ul style="">
+      <ion-icon name="star-outline" style="padding-right: 6%; padding-left:6%;"></ion-icon>
+      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+          </ul>
+        </ion-col>
+
+                </ion-row >
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-card *ngFor="let link of _cas.imagenes" style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
+
     <img [src]="link.link" alt="">
-    <ion-card-content class="row" text-center>
-      <ion-card-title>
-        {{ link.tag1 }}
-      </ion-card-title>
-      <button ion-fab (click)="sonido()" color ="danger" style="margin: 0; float:left">
-      <ion-icon name="volume-up"></ion-icon>
-    </button>
-    </ion-card-content>
+    <ion-row >
+<ion-col text-center style="padding-top:8%">
+  <h1 style="text-align;justify; ">{{ link.tag1 }}</h1>
+</ion-col>
+
+<ion-col text-right style="padding-right:10%">
+  <button ion-fab (click)="sonido()" color ="danger" style="float:right;">
+  <ion-icon name="volume-up"></ion-icon>
+</button>
+</ion-col>
+  </ion-row>
+
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="cargar_siguientes($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
-
 </ion-content>
+
+
+<ion-footer color="dark">
+  <ion-toolbar color="primary">
+  <ion-segment [(ngModel)]="categorias" color="dark">
+<ion-segment-button value= "cat1" style="color:white;">
+  <ion-icon name="body"></ion-icon>
+</ion-segment-button>
+<ion-segment-button value= "cat2" style="color:white;">
+  <ion-icon name="analytics"></ion-icon>
+</ion-segment-button>
+<ion-segment-button value= "cat3" style="color:white;">
+<ion-icon name="boat"></ion-icon>
+</ion-segment-button>
+
+  </ion-segment>
+
+</ion-toolbar>
+
+</ion-footer>

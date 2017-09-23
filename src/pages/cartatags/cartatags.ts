@@ -34,7 +34,7 @@ text:string;
 
 async sonido(): Promise<any>{
   try{
-    await this.tts.speak ("HOLI");
+    await this.tts.speak ("tag");
     console.log("Success"+ this.text);
   }catch(e){
 console.log(e);

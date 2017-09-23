@@ -65,7 +65,7 @@ export class SubirPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      correctOrientation: true
+      correctOrientation: true,
     }
 
     this.camera.getPicture(options).then((imageData) => {
