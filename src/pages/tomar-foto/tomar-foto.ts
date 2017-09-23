@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController,
+   NavParams, ViewController,ModalController } from 'ionic-angular';
 import {CameraOptions, Camera} from '@ionic-native/camera';
 import {CartatagsPage} from '../cartatags/cartatags';
 

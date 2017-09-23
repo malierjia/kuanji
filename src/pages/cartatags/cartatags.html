@@ -1,16 +1,27 @@
-
 <ion-header>
-
   <ion-navbar>
-    <button ion-button (click)="onButtonClicked()" style="color:danger">
+    <button ion-button (click)="cerrar_modal()" style="color:danger">
       Atras
     </button>
-
-    <ion-title>cartatags</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-  <img [src]="image" *ngIf="image" style="padding:10%"/>
+
+  <ion-card *ngFor="let link of _cas.imagenes" style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
+    <img [src]="link.link" alt="">
+    <ion-card-content class="row" text-center>
+      <ion-card-title>
+        {{ link.tag1 }}
+      </ion-card-title>
+      <button ion-fab (click)="sonido()" color ="danger" style="margin: 0; float:left">
+      <ion-icon name="volume-up"></ion-icon>
+    </button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="cargar_siguientes($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
