@@ -1,10 +1,14 @@
 <ion-header>
 
   <ion-navbar>
+        <ion-row no-padding >
+      <ion-col col-3>
+        <button ion-button (click)="cerrar_modal()" style="background-color: #fF4040;">
+      Atras
+        </button>
+      </ion-col>
+    </ion-row>
 
-    <ion-buttons>
-      <button ion-button (click)="cerrar_modal()" style="color:danger"> <ion-icon name="arrow-back"> </ion-icon> Atras </button>
-    </ion-buttons>
 
     <ion-buttons end>
       <button ion-button [disabled]="img.length < 2 " (click)="crear_link()">
