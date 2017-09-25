@@ -24,7 +24,16 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let link of _cas.imagenes" style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
+  <div [ngSwitch]="categorias" full="true"  assertive>
+
+
+/switch 1
+<ion-list *ngSwitchCase="'cat1'" >
+
+//AQUI HACER EL IF para tag= tag entonces mostrar cartas solo de tag =tag
+
+  <ion-card *ngFor="let link of _cas.imagenes"
+  style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
 
     <img [src]="link.link" alt="">
     <ion-row >
@@ -40,6 +49,23 @@
   </ion-row>
 
   </ion-card>
+</ion-list>
+
+/switch 2
+<ion-list *ngSwitchCase="'cat2'">
+
+<p> NADA CAT2</p>
+
+  </ion-list>
+
+/switch 3
+  <ion-list *ngSwitchCase="'cat3'">
+    <p> NADA CAT3</p>
+    </ion-list>
+
+
+</div>
+
 
   <ion-infinite-scroll (ionInfinite)="cargar_siguientes($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>

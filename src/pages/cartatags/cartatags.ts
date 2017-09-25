@@ -14,6 +14,7 @@ import { CargaArchivosService } from '../../providers/carga-archivos/carga-archi
 export class CartatagsPage {
 
 text:string;
+categorias: string = "cat1";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController, public modalCtrl: ModalController,
