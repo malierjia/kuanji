@@ -30,12 +30,10 @@ public tagTresLink;
       this.tagUnoLink = navParams.get("tagUnoLink");
       this.tagDosLink = navParams.get("tagDosLink");
       this.tagTresLink = navParams.get("tagTresLink");
-
   }
 
 async sonido( sonidoClick: string ): Promise<any>{
   try{
-
     await this.tts.speak ({
       text: sonidoClick,
     locale: 'es-ES' });
