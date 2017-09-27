@@ -36,7 +36,9 @@ sonidoClick: string;
 
 async sonido( sonidoClick: string ): Promise<any>{
   try{
-    await this.tts.speak (sonidoClick);
+    await this.tts.speak ({
+      text: sonidoClick,
+    locale: 'es-ES'});
     console.log("Success"+ this.text);
   }catch(e){
 console.log(e);

@@ -17,7 +17,7 @@
           </ul>
         </ion-col>
 
-                </ion-row >
+</ion-row >
 
   </ion-navbar>
 </ion-header>
@@ -25,7 +25,8 @@
 <ion-content padding>
 
   <ion-card style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
-
+    <ion-slides>
+    <ion-slide>
     <img [src]="imagenLink" alt="">
     <ion-row >
 <ion-col text-center style="padding-top:8%">
@@ -38,6 +39,43 @@
 </button>
 </ion-col>
   </ion-row>
+</ion-slide>
+
+<ion-slide>
+<img [src]="imagenLink" alt="">
+<ion-row >
+<ion-col text-center style="padding-top:8%">
+<h1 style="text-align;justify;">{{ tagDosLink}}</h1>
+</ion-col>
+
+<ion-col text-right style="padding-right:10%">
+<button ion-fab (click)="sonido(tagDosLink)" color ="danger" style="float:right;">
+<ion-icon name="volume-up"></ion-icon>
+</button>
+</ion-col>
+</ion-row>
+</ion-slide>
+
+
+<ion-slide>
+<img [src]="imagenLink" alt="">
+<ion-row >
+<ion-col text-center style="padding-top:8%">
+<h1 style="text-align;justify;">{{ tagTresLink}}</h1>
+</ion-col>
+
+<ion-col text-right style="padding-right:10%">
+<button ion-fab (click)="sonido(tagTresLink)" color ="danger" style="float:right;">
+<ion-icon name="volume-up"></ion-icon>
+</button>
+</ion-col>
+</ion-row>
+</ion-slide>
+
+
+
+</ion-slides>
 </ion-card>
+
 
 </ion-content>
