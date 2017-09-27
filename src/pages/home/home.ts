@@ -3,7 +3,7 @@ import { NavController, ModalController} from 'ionic-angular';
 import { IonicPage} from 'ionic-angular';
 import {TomarFotoPage} from '../tomar-foto/tomar-foto';
 import { SubirPage } from '../subir/subir';
-import { CartatagsPage } from '../cartatags/cartatags';
+import { CatalogoPage } from '../catalogo/catalogo';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +22,7 @@ mostrar_modal(){
   }
 
 onButtonClicked(){
-  let modal = this.modalCtrl.create( CartatagsPage );
+  let modal = this.modalCtrl.create( CatalogoPage );
   modal.present();
 }
 
