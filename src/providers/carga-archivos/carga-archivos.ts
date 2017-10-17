@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import  { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class CargaArchivosService {
@@ -27,9 +27,10 @@ export class CargaArchivosService {
         query: {
           limitToLast: 4,
           orderByKey: true,
-          endAt: this.lastKey
+          endAt: this.lastKey,
         }
-      }).subscribe( links => {
+      }
+    ).subscribe( links => {
         if(this.lastKey){
           links.pop();
         }
