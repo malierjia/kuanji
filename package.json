@@ -32,10 +32,12 @@
     "angularfire2": "^5.0.0-rc.3",
     "com.synconset.imagepicker": "~2.1.8",
     "cordova-android": "^6.2.3",
+    "cordova-plugin-advanced-http": "^1.6.1",
     "cordova-plugin-camera": "^2.4.1",
     "cordova-plugin-camera-preview": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
     "cordova-plugin-compat": "^1.1.0",
     "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-file": "^4.3.3",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-statusbar": "^2.2.2",
     "cordova-plugin-telerik-imagepicker": "^2.1.8",
@@ -69,7 +71,8 @@
       "com.synconset.imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "image picker"
       },
-      "cordova-plugin-tts": {}
+      "cordova-plugin-tts": {},
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "android"

@@ -91,4 +91,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="image picker" />
     </plugin>
     <plugin name="cordova-plugin-tts" spec="^0.2.3" />
+    <plugin name="cordova-plugin-advanced-http" spec="^1.6.1" />
 </widget>

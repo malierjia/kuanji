@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 import  { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -9,12 +12,13 @@ export class CargaArchivosService {
 
   private CARPETA_IMAGENES: string = '';
   private LINKS: string = 'links';
+  private linkAPI: string = 'https://us-central1-kuanji-64c62.cloudfunctions.net/app/predict';
 
   imagenes:any [] = [];
   lastKey:string = undefined;
 
 
-  constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController ) {
+  constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
 
   }
 
@@ -62,36 +66,35 @@ export class CargaArchivosService {
                   this.mostrar_toast( 'error al cargar: ' + JSON.stringify(error));
                   reject(error);
           }, //manejo de errores
-
           ( )=>{
-
               let url = uploadTask.snapshot.downloadURL;
               this.mostrar_toast('Imagen cargada con exito');
               this.crear_link_enBd(url);
               resolve();
           } //termino proceso
-
       )
-
     });
     return promesa;
-
   }
 
 
   private crear_link_enBd( url:string ) {
-    let link:archivoSubir = {
-      link: url,
-      tag1: 'tag',
-      tag2: 'tag',
-      tag3: 'tag'
-    };
+    // TODO: For some reason it isnt working with the firebase images but it does with other ones from the internet
 
-    let $key = this.af.list(`/${ this.LINKS }`).push( link ).key;
-    link.$key = $key;
 
-    this.imagenes.push( link );
-  }
+    // let link:archivoSubir = {
+    //   link: url,
+    //   tag1: 'tag',
+    //   tag2: 'tag',
+    //   tag3: 'tag'
+    // };
+    //
+    // let $key = this.af.list(`/${ this.LINKS }`).push( link ).key;
+    // link.$key = $key;
+    //
+    // this.imagenes.push( link );
+    this.http.get(this.linkAPI+url).do( res => this.mostrar_toast(res.toString()))
+}
 
   private mostrar_toast( texto:string ){
     this.toastCtrl.create({
