@@ -25,6 +25,7 @@ export class SubirPage {
 
   }
 
+  // method in charge of creating the link child for the db
   crear_link(){
     console.log("subiendo");
     let archivo = {
