@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import  { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class CargaArchivosService {
@@ -49,13 +49,13 @@ export class CargaArchivosService {
 
       //ref storage
       let storageRef = firebase.storage().ref();
-      let nombreArchivo = new Date().valueOf(); //el nombre es la fecha
+      let nombreArchivo:string = new Date().valueOf().toString();  //el nombre es la fecha
 
       let uploadTask: firebase.storage.UploadTask = storageRef.child(`${ this.CARPETA_IMAGENES  }/${ nombreArchivo }`)
       .putString( archivo.link, 'base64', { contentType: 'image/jpeg' });
 
       uploadTask.on( firebase.storage.TaskEvent.STATE_CHANGED,
-          ( snapshot )=> {   }, //saber el avance del archivo
+          ( )=> {   }, //saber el avance del archivo
 
           ( error )=> {
                   console.log("Error al subir ", JSON.stringify( error ));
@@ -77,6 +77,7 @@ export class CargaArchivosService {
     return promesa;
 
   }
+
 
   private crear_link_enBd( url:string ) {
     let link:archivoSubir = {
