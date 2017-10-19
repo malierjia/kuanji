@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class CargaArchivosService {
 
-  private CARPETA_IMAGENES: string = 'img';
+  private CARPETA_IMAGENES: string = '';
   private LINKS: string = 'links';
 
   imagenes:any [] = [];
@@ -20,7 +20,7 @@ export class CargaArchivosService {
 
   cargar_imagenes(){
 
-    //TODO: fix error on infiniteScroll, it only loading 7 images in total
+    //TODO: fix error on infiniteScroll, itś only loading 7 images in total
 
     return new Promise( (resolve, reject) =>{
       this.af.list('/links', {
