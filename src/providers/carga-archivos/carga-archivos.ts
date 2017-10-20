@@ -27,6 +27,7 @@ export class CargaArchivosService {
   cargar_imagenes(){
       console.log('holi desde get all images');
       this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
+          console.log(res);
           this.mostrar_toast("Eeeeeexito");
           this.mostrar_toast(res.toString());
 
