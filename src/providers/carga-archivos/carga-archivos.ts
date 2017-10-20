@@ -12,7 +12,7 @@ export class CargaArchivosService {
 
   private CARPETA_IMAGENES: string = '';
   private LINKS: string = 'links';
-  private linkAPI: string = 'https://us-central1-kuanji-64c62.cloudfunctions.net/app/predict';
+  private linkAPI: string = 'https://kuanji.herokuapp.com/predict?link=';
 
   imagenes:any [] = [];
   lastKey:string = undefined;
@@ -49,7 +49,7 @@ export class CargaArchivosService {
   cargar_imagenes_firebase( archivo:archivoSubir ){
 
     let promesa = new Promise( (resolve, reject)=>{
-      this.mostrar_toast('Iniciando la carga');
+      //this.mostrar_toast('Iniciando la carga');
 
       //ref storage
       let storageRef = firebase.storage().ref();
@@ -68,7 +68,7 @@ export class CargaArchivosService {
           }, //manejo de errores
           ( )=>{
               let url = uploadTask.snapshot.downloadURL;
-              this.mostrar_toast('Imagen cargada con exito');
+            //  this.mostrar_toast('Imagen cargada con exito');
               this.crear_link_enBd(url);
               resolve();
           } //termino proceso
@@ -79,21 +79,16 @@ export class CargaArchivosService {
 
 
   private crear_link_enBd( url:string ) {
+    //this.mostrar_toast(url)
     // TODO: For some reason it isnt working with the firebase images but it does with other ones from the internet
-
-
-    // let link:archivoSubir = {
-    //   link: url,
-    //   tag1: 'tag',
-    //   tag2: 'tag',
-    //   tag3: 'tag'
-    // };
-    //
-    // let $key = this.af.list(`/${ this.LINKS }`).push( link ).key;
-    // link.$key = $key;
-    //
-    // this.imagenes.push( link );
-    this.http.get(this.linkAPI+url).do( res => this.mostrar_toast(res.toString()))
+    // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
+    this.http.get('https://kuanji.herokuapp.com/predict?link='+url)
+	      .subscribe(res => {
+          this.mostrar_toast("Eeeeeexito");
+	      	console.log(res.json());
+	      }, (err) => {
+	      	console.log(err);
+	      });
 }
 
   private mostrar_toast( texto:string ){

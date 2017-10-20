@@ -51,7 +51,7 @@ import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivo
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-     HttpModule
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
