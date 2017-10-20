@@ -30,12 +30,8 @@ export class CargaArchivosService {
       this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
           this.mostrar_toast("Eeeeeexito");
           this.mostrar_toast(res.toString());
-          var arrayLinks = res.json();
-          // console.log(res.json());
-          // return res.json();
-          for(var i; i < arrayLinks.length; i++){
-            this.imagenes.push(arrayLinks[i]);
-          }
+
+          this.imagenes = res.json();
         }, (err) => {
           console.log(err);
         });
