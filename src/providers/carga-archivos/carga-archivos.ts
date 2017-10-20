@@ -15,7 +15,6 @@ export class CargaArchivosService {
   private LINKS: string = 'links';
   private linkAPI: string = 'https://kuanji.herokuapp.com/predict?link=';
 
-
   imagenes:any [] = [];
   // imagenes: Observable<any[]>;
   lastKey:string = undefined;

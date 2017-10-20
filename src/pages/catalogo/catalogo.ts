@@ -46,8 +46,8 @@ console.log(e);
   }
 }
 
-pasarcarta(imagen:string, tagUno:string, tagDos:string, tagTres: string)
-{
+pasarcarta(imagen:string, tagUno:string, tagDos:string, tagTres: string){
+  console.log('PASARCARTA OME OME');
   let modal = this.modalCtrl.create( CartatagsPage, {
     imagenLink: imagen,
     tagUnoLink: tagUno,

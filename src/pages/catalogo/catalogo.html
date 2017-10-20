@@ -89,7 +89,7 @@
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll> -->
 
-  <ion-card *ngFor="let link of _cas.imagenes">
+  <ion-card *ngFor="let link of _cas.imagenes" type="button" (click)="pasarcarta(imagen:link.link, tagUno:link.tag1, tagDos:link.tag2, tagTres: link.tag3)">
     <img [src]="link.link" alt="">
     <ion-card-content>
       <ion-card-title>
