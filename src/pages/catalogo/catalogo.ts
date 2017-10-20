@@ -26,12 +26,13 @@ sonidoClick: string;
 
   cargar_siguientes(infiniteScroll: any){
   console.log('sgtes');
-  this._cas.cargar_imagenes().then(
-    () => {
-      infiniteScroll.complete();
+  // this._cas.cargar_imagenes().then(
+  //   () => {
+  //     infiniteScroll.complete();
+  //   }
+  // );
 
-    }
-  );
+  var linksFromAPI = this._cas.cargar_imagenes();
 }
 
 async sonido( sonidoClick: string ): Promise<any>{

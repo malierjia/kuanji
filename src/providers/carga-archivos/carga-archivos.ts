@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
@@ -14,43 +15,36 @@ export class CargaArchivosService {
   private LINKS: string = 'links';
   private linkAPI: string = 'https://kuanji.herokuapp.com/predict?link=';
 
+
   imagenes:any [] = [];
+  // imagenes: Observable<any[]>;
   lastKey:string = undefined;
 
 
   constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
 
-  }
+      }
 
   cargar_imagenes(){
-
-    return new Promise( (resolve, reject) =>{
-      this.af.list('/links', ref=> ref.limitToLast(3).orderByKey().endAt( this.lastKey )).valueChanges().subscribe( (links:any) => {
-        if(this.lastKey){
-          links.pop();
-        }
-
-        if(links.length == 0){
-          console.log("no hay mas");
-          resolve(false);
-          return;
-        }
-
-        this.lastKey = links[0].key;
-        for(let i = links.length-1; i>=0; i--){
-          let link = links[i];
-          this.imagenes.push( link );
-        }
-      })
-    })
-
-  }
+      console.log('holi desde get all images');
+      this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
+          this.mostrar_toast("Eeeeeexito");
+          this.mostrar_toast(res.toString());
+          var arrayLinks = res.json();
+          // console.log(res.json());
+          // return res.json();
+          for(var i; i < arrayLinks.length; i++){
+            this.imagenes.push(arrayLinks[i]);
+          }
+        }, (err) => {
+          console.log(err);
+        });
+}
 
   cargar_imagenes_firebase( archivo:archivoSubir ){
 
     let promesa = new Promise( (resolve, reject)=>{
-      //this.mostrar_toast('Iniciando la carga');
-
+      this.mostrar_toast('Iniciando la carga');
       //ref storage
       let storageRef = firebase.storage().ref();
       let nombreArchivo:string = new Date().valueOf().toString();  //el nombre es la fecha
