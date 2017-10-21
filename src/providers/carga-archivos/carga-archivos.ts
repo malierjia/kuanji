@@ -16,13 +16,14 @@ export class CargaArchivosService {
   private linkAPI: string = 'https://kuanji.herokuapp.com/predict?link=';
 
   imagenes:any [] = [];
+  imagenesBackwards:any [] = [];
   // imagenes: Observable<any[]>;
   lastKey:string = undefined;
 
 
   constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
-
-      }
+    this.cargar_imagenes()
+    }
 
   cargar_imagenes(){
       console.log('holi desde get all images');
@@ -32,6 +33,11 @@ export class CargaArchivosService {
           this.mostrar_toast(res.toString());
 
           this.imagenes = res.json();
+
+        for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+            this.imagenesBackwards.push(this.imagenes[counter]);
+          }
+
         }, (err) => {
           console.log(err);
         });
