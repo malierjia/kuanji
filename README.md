@@ -1,26 +1,8 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+Kuanji its a mobile  app for image recognition developed for children with cognitive impairment, based on a 6 month investigation of the user needs and 6 month development and testing period.
 
-## How to use this template
+## By:
+Sebastian Velasco and Maria Alejandra Moreno with the help of our tutor David Manzano.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+### Developed with:
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
-
-Then, to run it, cd into `myTabs` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+Ionic and angular for the front end and nodejs and firebase for the back end... you can find the link to the backend repo here: https://github.com/sebasvelasco353/kuanji_heroku
