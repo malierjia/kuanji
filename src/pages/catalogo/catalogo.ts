@@ -24,14 +24,8 @@ sonidoClick: string;
       this._cas.cargar_imagenes();
   }
 
-  cargar_siguientes(infiniteScroll: any){
+  cargar_siguientes(){
   console.log('sgtes');
-  // this._cas.cargar_imagenes().then(
-  //   () => {
-  //     infiniteScroll.complete();
-  //   }
-  // );
-
   var linksFromAPI = this._cas.cargar_imagenes();
 }
 
