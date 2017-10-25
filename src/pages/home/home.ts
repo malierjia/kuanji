@@ -12,18 +12,19 @@ import { CatalogoPage } from '../catalogo/catalogo';
 
 export class HomePage {
 
-constructor(public navCtrl: NavController,
-  public modalCtrl: ModalController) {}
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController) {}
 
-//cambio de pagina a camara
-mostrar_modal(){
+  // Cameta modal method, used to be mostrar_modal
+  camera(){
     let modal = this.modalCtrl.create( SubirPage );
     modal.present();
   }
 
-onButtonClicked(){
-  let modal = this.modalCtrl.create( CatalogoPage );
-  modal.present();
-}
+  // Gallery method, used to be onButtonClicked
+  galley(){
+    let modal = this.modalCtrl.create( CatalogoPage );
+    modal.present();
+  }
 
 }

@@ -1,11 +1,13 @@
+// ionic stuff
 import { NgModule, ErrorHandler } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {TextToSpeech} from '@ionic-native/text-to-speech';
+import { HttpModule } from '@angular/http';
 
-
+// pages
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -48,7 +50,8 @@ import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivo
     IonicModule.forRoot(MyApp,{tabsPlacement: 'bottom'}),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -72,7 +75,7 @@ import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivo
     TextToSpeech,
 
     {
-      provide: ErrorHandler, useClass: IonicErrorHandler}
+      provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
