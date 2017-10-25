@@ -17,6 +17,7 @@ export class CargaArchivosService {
 
   imagenes:any [] = [];
   imagenesBackwards:any [] = [];
+  emptyArray:any [] = [];
   // imagenes: Observable<any[]>;
   lastKey:string = undefined;
 
@@ -41,6 +42,27 @@ export class CargaArchivosService {
         }, (err) => {
           console.log(err);
         });
+}
+
+cargar_por_tag_Uno(){
+  // starting with an empty array
+  // this.imagenesBackwards = this.emptyArray;
+
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=pueblo').subscribe(res => {
+      console.log(res.json());
+      this.mostrar_toast("Eeeeeexito");
+      // this.mostrar_toast(res.toString());
+      this.imagenes = res.json();
+      // console.log(this.imagenes);
+
+    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+        this.imagenesBackwards.push(this.imagenes[counter]);
+      }
+    // console.log(this.imagenesBackwards);
+
+    }, (err) => {
+      console.log(err);
+    });
 }
 
   cargar_imagenes_firebase( archivo:archivoSubir ){
