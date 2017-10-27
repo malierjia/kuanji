@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+        <ion-row no-padding >
+      <ion-col col-3>
+        <button ion-button (click)="cerrar_modal()" style="background-color: #fF4040;">
+      Atras
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-buttons end>
+      <button ion-button [disabled]="img.length < 2 " (click)="crear_link()">
+        Agregar a la BD
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  class="no-scroll">
+  <ion-list>
+    <ion-item *ngIf="imgPreview">
+      <img [src]="imgPreview" alt="">
+    </ion-item>
+  </ion-list>
+
+<div padding class="botones" style="position:absolute; bottom: -0.8%">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block icon-left (click)="mostrar_camara()" style="background-color: #fF4040; height: 100px;">
+         <img src="img/camara.png" alt="camara" style="width:60%;"> </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block icon-left (click)="seleccionar_imagenes()" style="background-color: #fF4040; height: 100px">
+          <ion-icon name="images"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</div>
+
+</ion-content>

@@ -1,18 +1,121 @@
-<!--
-  Generated template for the CatalogoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>catalogo</ion-title>
+    <ion-row no-padding>
+      <ion-col col-3>
+        <button ion-button (click)="cerrar_modal()" style="color: danger;">
+          Atras
+        </button>
+      </ion-col>
+
+      <ion-col col-9>
+        <ul style="">
+          <ion-icon name="star-outline" style="padding-right: 6%; padding-left:6%;"></ion-icon>
+          <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+          <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+          <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+          <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
+        </ul>
+      </ion-col>
+
+    </ion-row>
+
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 
+  <!-- <div [ngSwitch]="categorias" full="true" assertive>
+
+
+    <!--switch 1
+    <ion-list *ngSwitchCase="'cat1'">
+
+
+      <ion-card *ngFor="let link of _cas.imagenes" style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)">
+        <ng-container *ngIf="link.tag1 == 'animal'">
+
+
+          <img [src]="link.link" alt="" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+          <ion-row>
+            <ion-col text-center style="padding-top:8%">
+              <h1 style="text-align;justify; ">{{ link.tag1 }}</h1>
+            </ion-col>
+
+            <ion-col text-right style="padding-right:10%">
+              <button ion-fab (click)="sonido(link.tag1)" color="danger" style="float:right;">
+              <ion-icon name="volume-up"></ion-icon>
+            </button>
+            </ion-col>
+          </ion-row>
+
+        </ng-container>
+
+      </ion-card>
+
+
+    </ion-list>
+
+    <!--switch 2--
+    <ion-list *ngSwitchCase="'cat2'">
+
+      <ion-card *ngFor="let link of _cas.imagenes" style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)">
+        <ng-container *ngIf="link.tag1 == 'tag'">
+
+          <img [src]="link.link" alt="" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+          <ion-row>
+            <ion-col text-center style="padding-top:8%">
+              <h1 style="text-align;justify; ">{{ link.tag1 }}</h1>
+            </ion-col>
+
+            <ion-col text-right style="padding-right:10%">
+              <button ion-fab (click)="sonido(link.tag1)" color="danger" style="float:right;">
+            <ion-icon name="volume-up"></ion-icon>
+          </button>
+            </ion-col>
+          </ion-row>
+
+        </ng-container>
+
+      </ion-card>
+    </ion-list>
+
+    <!--switch 3--
+    <ion-list *ngSwitchCase="'cat3'">
+      <p> NADA CAT3</p>
+    </ion-list>
+  </div> -->
+<!--
+  <ion-infinite-scroll (ionInfinite)="cargar_siguientes($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+  <ion-card *ngFor="let link of _cas.imagenesBackwards" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+    <img [src]="link.link" alt="">
+    <ion-card-content>
+      <ion-card-title>
+        {{ link.tag1 }}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
+
+<!--
+<ion-footer color="dark">
+  <ion-toolbar color="primary">
+    <ion-segment [(ngModel)]="categorias" color="dark">
+      <ion-segment-button value="cat1" style="color:white;">
+        <ion-icon name="body"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="cat2" style="color:white;">
+        <ion-icon name="analytics"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="cat3" style="color:white;">
+        <ion-icon name="boat"></ion-icon>
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-footer> -->

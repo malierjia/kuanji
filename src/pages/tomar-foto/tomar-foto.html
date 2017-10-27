@@ -1,9 +1,11 @@
 <ion-header>
 
   <ion-navbar>
-    <button ion-button (click)="onButtonClicked()" style="color:danger">
-      Atras
-    </button>
+
+    <ion-buttons>
+      <button ion-button (click)="cerrar_modal()" style="color:danger">Atras</button>
+    </ion-buttons>
+
 
     <ion-title></ion-title>
       </ion-navbar>
@@ -20,6 +22,7 @@
     style="height:100px; background-color: #fF4040; width: 48%">
     <img src="img/camara.png" alt="camara" style="width:60%;">
    </button>
+
    <button ion-button (click)="onButtonClicked()"
    style="height:100px; background-color: #FCBE00; width: 48%">
    <img src="icon ion-checkmark-round" style="width:50%;">
