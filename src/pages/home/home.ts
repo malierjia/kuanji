@@ -15,9 +15,9 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public modalCtrl: ModalController) {}
 
-  // Cameta modal method, used to be mostrar_modal
-  camera(){
-    let modal = this.modalCtrl.create( SubirPage );
+  //cambio de pagina a camara
+public toCamera():  void{
+    let modal= this.modalCtrl.create(TomarFotoPage);
     modal.present();
   }
 
