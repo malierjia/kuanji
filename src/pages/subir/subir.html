@@ -9,11 +9,7 @@
       </ion-col>
     </ion-row>
 
-
     <ion-buttons end>
-      <button ion-button [disabled]="img.length < 2 " (click)="crear_link()">
-        Agregar a la BD
-      </button>
 
     </ion-buttons>
   </ion-navbar>
@@ -24,7 +20,7 @@
 <ion-content  class="no-scroll">
   <ion-list>
     <ion-item *ngIf="imgPreview">
-      <img [src]="imgPreview" alt="">
+      <img [src]="imgPreview" alt="" style= "max-width: 95%;">
     </ion-item>
   </ion-list>
 
@@ -37,7 +33,7 @@
       </ion-col>
       <ion-col>
         <button ion-button block icon-left (click)="seleccionar_imagenes()" style="background-color: #fF4040; height: 100px">
-          <ion-icon name="images"></ion-icon></button>
+        <img src="img/Pedirgaleria.png" alt="galeria" style="width:60%;"></button>
       </ion-col>
     </ion-row>
   </ion-grid>

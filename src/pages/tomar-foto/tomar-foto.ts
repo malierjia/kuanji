@@ -6,6 +6,7 @@ import {CameraOptions, Camera} from '@ionic-native/camera';
 import {CartatagsPage} from '../cartatags/cartatags';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-tomar-foto',
@@ -18,7 +19,7 @@ export class TomarFotoPage {
   image: string = null;
 
 
-constructor(public navCtrl: NavController, public navParams: NavParams,
+constructor(public navCtrl: NavController, public navParams: NavParams, 
 private camera: Camera, public viewCtrl: ViewController, public modalCtrl: ModalController
    ) {this.getPicture();}
 
@@ -27,7 +28,7 @@ private camera: Camera, public viewCtrl: ViewController, public modalCtrl: Modal
      console.log('ionViewDidLoad TomarFotoPage');
    }
 
-    getPicture(){
+getPicture(){
         let options: CameraOptions = {
           destinationType: this.camera.DestinationType.DATA_URL,
           targetWidth: 1000,
@@ -35,6 +36,7 @@ private camera: Camera, public viewCtrl: ViewController, public modalCtrl: Modal
           quality: 100
         }
         this.camera.getPicture( options )
+
         .then(imageData => {
           this.image = `data:image/jpeg;base64,${imageData}`;
 
@@ -48,6 +50,11 @@ public onButtonClicked():  void{
           let modal= this.modalCtrl.create(CartatagsPage);
           modal.present();
 }
+
+
+
+
+
 
 //public onButtonClicked():void{
 //this.viewCtrl.dismiss();
