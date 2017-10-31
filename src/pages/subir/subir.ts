@@ -25,7 +25,8 @@ export class SubirPage {
                         private platform: Platform, private imagePicker: ImagePicker, private _cas: CargaArchivosService,
                         private loadingCtrl: LoadingController, private navParams: NavParams) {
 
-                      this.imagenPreview = navParams.get("preview");
+                      this.imgPreview = navParams.get("preview");
+                      this.img = navParams.get("imagen");
   }
 
   // method in charge of creating the link child for the db
