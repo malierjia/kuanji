@@ -89,8 +89,6 @@ cargar_por_tag_Dos(){
 }
 
 cargar_por_tag_Tres(){
-  // starting with an empty array
-  // this.imagenesBackwards = this.emptyArray;
 
   this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
       console.log("holita desde encontrar perro");
