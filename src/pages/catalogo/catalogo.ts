@@ -15,7 +15,6 @@ import { CartatagsPage } from '../cartatags/cartatags';
 export class CatalogoPage {
 
 text:string;
-categorias: string = "cat1";
 sonidoClick: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
