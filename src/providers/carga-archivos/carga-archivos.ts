@@ -48,7 +48,7 @@ cargar_por_tag_Uno(){
   // starting with an empty array
   // this.imagenesBackwards = this.emptyArray;
 
-  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=adulto').subscribe(res => {
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=masculino').subscribe(res => {
       console.log("holita desde encontrar beber");
       console.log(res.json());
       // this.mostrar_toast(res.toString());
@@ -70,7 +70,7 @@ cargar_por_tag_Dos(){
   // starting with an empty array
   // this.imagenesBackwards = this.emptyArray;
 
-  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=masculino').subscribe(res => {
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
       console.log("holita desde encontrar gato");
       console.log(res.json());
       // this.mostrar_toast(res.toString());
