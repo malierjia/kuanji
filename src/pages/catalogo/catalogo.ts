@@ -21,7 +21,7 @@ sonidoClick: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController, public modalCtrl: ModalController,
     private _cas: CargaArchivosService, private tts:TextToSpeech) {
-      // this._cas.cargar_imagenes();
+      this._cas.cargar_por_tag_Uno();
   }
 
 //   cargar_siguientes(infiniteScroll: any){

@@ -17,7 +17,9 @@ export class CargaArchivosService {
 
   imagenes:any [] = [];
   imagenesBackwards:any [] = [];
-  emptyArray:any [] = [];
+  imagesArray:any [] = [];
+
+
   // imagenes: Observable<any[]>;
   lastKey:string = undefined;
 
@@ -33,12 +35,9 @@ export class CargaArchivosService {
           this.mostrar_toast("Eeeeeexito");
         //  this.mostrar_toast(res.toString());
 
-        for(var counter=this.imagenes.length; counter >= 0; counter--){
-            this.imagenesBackwards.push(this.imagenes[counter]);
-            console.log(this.imagenes[counter]);
-          }
+        this.imagenes = res.json();
+        this.imagenes = this.imagenes.reverse();
 
-          this.imagenesBackwards = res.json();
         }, (err) => {
           console.log(err);
         });
@@ -52,12 +51,9 @@ cargar_por_tag_Uno(){
       console.log("holita desde encontrar beber");
       console.log(res.json());
 
-      for(var counter=0; counter < this.imagenes.length; counter++){
-          this.imagenesBackwards.push(this.imagenes[counter]);
-        }
-        this.imagenesBackwards = res.json();
-
-    }, (err) => {
+    this.imagenes = res.json();
+    this.imagenes = this.imagenes.reverse();
+}, (err) => {
       console.log(err);
     });
 }
@@ -68,13 +64,9 @@ cargar_por_tag_Dos(){
       console.log("holita desde encontrar gato");
       console.log(res.json());
 
-      for(var counter=0; counter < this.imagenes.length; counter++){
-          this.imagenesBackwards.push(this.imagenes[counter]);
-        }
-        this.imagenesBackwards = res.json();
-    // console.log(this.imagenesBackwards);
-
-    }, (err) => {
+    this.imagenes = res.json();
+    this.imagenes = this.imagenes.reverse();
+}, (err) => {
       console.log(err);
     });
 }
@@ -85,12 +77,9 @@ cargar_por_tag_Tres(){
       console.log("holita desde encontrar perro");
       console.log(res.json());
 
-      for(var counter=0; counter < this.imagenes.length; counter++){
-          this.imagenesBackwards.push(this.imagenes[counter]);
-        }
-        this.imagenesBackwards = res.json();
-
-    }, (err) => {
+      this.imagenes = res.json();
+      this.imagenes = this.imagenes.reverse();
+}, (err) => {
       console.log(err);
     });
 }

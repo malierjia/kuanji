@@ -28,7 +28,7 @@
 
     <!--switch 1-->
     <ion-list *ngSwitchCase="'cat1'">
-      <ion-card *ngFor="let link of _cas.imagenesBackwards" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+      <ion-card *ngFor="let link of _cas.imagenes" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
         <img [src]="link.link" alt="">
         <ion-card-content>
           <ion-card-title>
@@ -40,7 +40,7 @@
 
     <!--switch 2-->
     <ion-list *ngSwitchCase="'cat2'">
-      <ion-card *ngFor="let link of _cas.imagenesBackwards" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+      <ion-card *ngFor="let link of _cas.imagenes" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
         <img [src]="link.link" alt="">
         <ion-card-content>
           <ion-card-title>
@@ -52,7 +52,7 @@
 
     <!--switch 3 - Transporte-->
     <ion-list *ngSwitchCase="'cat3'">
-      <ion-card *ngFor="let link of _cas.imagenesBackwards" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+      <ion-card *ngFor="let link of _cas.imagenes" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
         <img [src]="link.link" alt="">
         <ion-card-content>
           <ion-card-title>
