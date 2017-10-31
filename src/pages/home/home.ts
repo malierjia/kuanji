@@ -8,6 +8,9 @@ import {TomarFotoPage} from '../tomar-foto/tomar-foto';
 import { SubirPage } from '../subir/subir';
 import { CatalogoPage } from '../catalogo/catalogo';
 
+//servicios / providers
+import { CargaArchivosService } from '../../providers/carga-archivos/carga-archivos';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,13 +20,11 @@ export class HomePage {
   imgPreview: string = undefined;
   img: string = "";
 
-  constructor(public navCtrl: NavController, private platform: Platform, private navParams: NavParams,
-    public modalCtrl: ModalController, private camera: Camera, private ToastCtlr: ToastController) {}
+  constructor(public navCtrl: NavController, private platform: Platform, private navParams: NavParams, private loadingCtrl: LoadingController,
+    public modalCtrl: ModalController, private camera: Camera, private ToastCtlr: ToastController,  private _cas: CargaArchivosService) {}
 
   // Cameta modal method, used to be mostrar_modal
   show_camera(){
-    // let modal = this.modalCtrl.create( SubirPage );
-    // modal.present();
 
     if (!this.platform.is("cordova")) {
       this.mostrar_toast("Error, no estas desde un dispositivo movil");
@@ -43,11 +44,33 @@ export class HomePage {
       this.imgPreview = `data:image/jpeg;base64,${imageData}`;
       this.img = imageData;
 
-      let modal = this.modalCtrl.create( SubirPage, {
-          preview: this.imgPreview,
-          imagen: this.img
-      });
-      modal.present();
+      // let modal = this.modalCtrl.create( SubirPage, {
+      //     preview: this.imgPreview,
+      //     imagen: this.img
+      // });
+      // modal.present();
+
+        console.log("subiendo");
+        let archivo = {
+          'link':this.img,
+          'tag1':'lala',
+          'tag3':'lala',
+          'tag2':'lala'
+        };
+
+        let loader = this.loadingCtrl.create({
+          content: "Subiendo"
+        });
+        loader.present();
+
+        this._cas.cargar_imagenes_firebase( archivo ).then(
+          ( ) => {
+              loader.dismiss();
+          }, //cuando termine de subir
+          ( error )=>{
+            loader.dismiss();
+            this.mostrar_toast("Error al cargar: " + error );
+          });
     }, (err) => {
       // Handle error
       this.mostrar_toast(err);

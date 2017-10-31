@@ -23,7 +23,7 @@ export class CargaArchivosService {
 
 
   constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
-    this.cargar_imagenes()
+    //this.cargar_imagenes()
     }
 
   cargar_imagenes(){
@@ -31,13 +31,13 @@ export class CargaArchivosService {
       this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
           console.log(res);
           this.mostrar_toast("Eeeeeexito");
-          this.mostrar_toast(res.toString());
+        //  this.mostrar_toast(res.toString());
 
-          this.imagenes = res.json();
-
-        for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+        for(var counter=this.imagenes.length; counter >= 0; counter--){
             this.imagenesBackwards.push(this.imagenes[counter]);
+            console.log(this.imagenes[counter]);
           }
+
           this.imagenesBackwards = res.json();
         }, (err) => {
           console.log(err);
@@ -51,15 +51,11 @@ cargar_por_tag_Uno(){
   this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=masculino').subscribe(res => {
       console.log("holita desde encontrar beber");
       console.log(res.json());
-      // this.mostrar_toast(res.toString());
-      this.imagenes = res.json();
-      // console.log(this.imagenes);
 
-    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
-        this.imagenesBackwards.push(this.imagenes[counter]);
-      }
-      this.imagenesBackwards = res.json();
-    // console.log(this.imagenesBackwards);
+      for(var counter=0; counter < this.imagenes.length; counter++){
+          this.imagenesBackwards.push(this.imagenes[counter]);
+        }
+        this.imagenesBackwards = res.json();
 
     }, (err) => {
       console.log(err);
@@ -67,20 +63,15 @@ cargar_por_tag_Uno(){
 }
 
 cargar_por_tag_Dos(){
-  // starting with an empty array
-  // this.imagenesBackwards = this.emptyArray;
 
   this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
       console.log("holita desde encontrar gato");
       console.log(res.json());
-      // this.mostrar_toast(res.toString());
-      this.imagenes = res.json();
-      // console.log(this.imagenes);
 
-    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
-        this.imagenesBackwards.push(this.imagenes[counter]);
-      }
-      this.imagenesBackwards = res.json();
+      for(var counter=0; counter < this.imagenes.length; counter++){
+          this.imagenesBackwards.push(this.imagenes[counter]);
+        }
+        this.imagenesBackwards = res.json();
     // console.log(this.imagenesBackwards);
 
     }, (err) => {
@@ -93,16 +84,11 @@ cargar_por_tag_Tres(){
   this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
       console.log("holita desde encontrar perro");
       console.log(res.json());
-      // this.mostrar_toast(res.toString());
-      //this.imagenes = res.json();
-      // console.log(this.imagenes);
 
-    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
-        this.imagenesBackwards.push(this.imagenes[counter]);
-      }
-
-      this.imagenesBackwards = res.json();
-    // console.log(this.imagenesBackwards);
+      for(var counter=0; counter < this.imagenes.length; counter++){
+          this.imagenesBackwards.push(this.imagenes[counter]);
+        }
+        this.imagenesBackwards = res.json();
 
     }, (err) => {
       console.log(err);
