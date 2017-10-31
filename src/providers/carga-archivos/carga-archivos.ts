@@ -38,7 +38,7 @@ export class CargaArchivosService {
         for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
             this.imagenesBackwards.push(this.imagenes[counter]);
           }
-
+          this.imagenesBackwards = res.json();
         }, (err) => {
           console.log(err);
         });
