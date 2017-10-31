@@ -43,8 +43,8 @@ export class HomePage {
       this.imgPreview = `data:image/jpeg;base64,${imageData}`;
       this.img = imageData;
 
-      let modal = this.modalCtrl.create( SubirPage {
-          preview: imgPreview
+      let modal = this.modalCtrl.create( SubirPage, {
+          preview: this.imgPreview
       });
       modal.present();
     }, (err) => {

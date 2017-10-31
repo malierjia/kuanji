@@ -24,15 +24,15 @@ sonidoClick: string;
       // this._cas.cargar_imagenes();
   }
 
-  cargar_siguientes(infiniteScroll: any){
-  console.log('sgtes');
-  this._cas.cargar_imagenes().then(
-    () => {
-      infiniteScroll.complete();
-
-    }
-  );
-}
+//   cargar_siguientes(infiniteScroll: any){
+//   console.log('sgtes');
+//   this._cas.cargar_imagenes().then(
+//     () => {
+//       infiniteScroll.complete();
+//
+//     }
+//   );
+// }
 
 async sonido( sonidoClick: string ): Promise<any>{
   try{
