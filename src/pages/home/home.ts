@@ -89,6 +89,12 @@ export class HomePage {
     modal.present();
   }
 
+  mostrar_Congratz(){
+    // Method for congratulations
+      let modal = this.modalCtrl.create( FelicidadesPage );
+      modal.present();
+  }
+
   private mostrar_toast(texto: string) {
     this.ToastCtlr.create({
       message: texto,
