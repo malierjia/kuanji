@@ -22,4 +22,8 @@ export class FelicidadesPage {
     console.log('ionViewDidLoad FelicidadesPage');
   }
 
+  animacionInicial(){
+
+  }
+
 }

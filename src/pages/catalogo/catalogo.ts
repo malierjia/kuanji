@@ -24,16 +24,6 @@ sonidoClick: string;
       this._cas.cargar_por_tag_Uno();
   }
 
-//   cargar_siguientes(infiniteScroll: any){
-//   console.log('sgtes');
-//   this._cas.cargar_imagenes().then(
-//     () => {
-//       infiniteScroll.complete();
-//
-//     }
-//   );
-// }
-
 async sonido( sonidoClick: string ): Promise<any>{
   try{
     await this.tts.speak ({

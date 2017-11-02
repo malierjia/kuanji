@@ -7,6 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import {TomarFotoPage} from '../tomar-foto/tomar-foto';
 import { SubirPage } from '../subir/subir';
 import { CatalogoPage } from '../catalogo/catalogo';
+import { FelicidadesPage } from '../felicidades/felicidades';
 
 //servicios / providers
 import { CargaArchivosService } from '../../providers/carga-archivos/carga-archivos';
@@ -66,6 +67,10 @@ export class HomePage {
         this._cas.cargar_imagenes_firebase( archivo ).then(
           ( ) => {
               loader.dismiss();
+
+              // Method for congratulations
+                let modal = this.modalCtrl.create( FelicidadesPage );
+                modal.present();
           }, //cuando termine de subir
           ( error )=>{
             loader.dismiss();
