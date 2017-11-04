@@ -22,11 +22,13 @@ sonidoClick: string;
     private _cas: CargaArchivosService, private tts:TextToSpeech) {
       // this._cas.cargar_imagenes();
   }
+
 //
 //   cargar_siguientes(){
 //   console.log('sgtes');
 //   var linksFromAPI = this._cas.cargar_imagenes();
 // }
+
 
 async sonido( sonidoClick: string ): Promise<any>{
   try{
