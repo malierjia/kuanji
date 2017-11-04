@@ -17,6 +17,7 @@ export class CargaArchivosService {
 
   imagenes:any [] = [];
   imagenesBackwards:any [] = [];
+  emptyArray:any [] = [];
   // imagenes: Observable<any[]>;
   lastKey:string = undefined;
 
@@ -41,6 +42,73 @@ export class CargaArchivosService {
         }, (err) => {
           console.log(err);
         });
+}
+
+cargar_por_tag_Uno(){
+  // starting with an empty array
+  // this.imagenesBackwards = this.emptyArray;
+
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=adulto').subscribe(res => {
+      console.log("holita desde encontrar beber");
+      console.log(res.json());
+      // this.mostrar_toast(res.toString());
+      this.imagenes = res.json();
+      // console.log(this.imagenes);
+
+    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+        this.imagenesBackwards.push(this.imagenes[counter]);
+      }
+      this.imagenesBackwards = res.json();
+    // console.log(this.imagenesBackwards);
+
+    }, (err) => {
+      console.log(err);
+    });
+}
+
+cargar_por_tag_Dos(){
+  // starting with an empty array
+  // this.imagenesBackwards = this.emptyArray;
+
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=masculino').subscribe(res => {
+      console.log("holita desde encontrar gato");
+      console.log(res.json());
+      // this.mostrar_toast(res.toString());
+      this.imagenes = res.json();
+      // console.log(this.imagenes);
+
+    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+        this.imagenesBackwards.push(this.imagenes[counter]);
+      }
+      this.imagenesBackwards = res.json();
+    // console.log(this.imagenesBackwards);
+
+    }, (err) => {
+      console.log(err);
+    });
+}
+
+cargar_por_tag_Tres(){
+  // starting with an empty array
+  // this.imagenesBackwards = this.emptyArray;
+
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+      console.log("holita desde encontrar perro");
+      console.log(res.json());
+      // this.mostrar_toast(res.toString());
+      //this.imagenes = res.json();
+      // console.log(this.imagenes);
+
+    for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
+        this.imagenesBackwards.push(this.imagenes[counter]);
+      }
+
+      this.imagenesBackwards = res.json();
+    // console.log(this.imagenesBackwards);
+
+    }, (err) => {
+      console.log(err);
+    });
 }
 
   cargar_imagenes_firebase( archivo:archivoSubir ){
