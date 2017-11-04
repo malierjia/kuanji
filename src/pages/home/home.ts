@@ -3,7 +3,11 @@ import { NavController, ModalController} from 'ionic-angular';
 import { IonicPage} from 'ionic-angular';
 import {TomarFotoPage} from '../tomar-foto/tomar-foto';
 import { SubirPage } from '../subir/subir';
+import { FelicidadesPage } from '../felicidades/felicidades';
 import { CatalogoPage } from '../catalogo/catalogo';
+import { CartatagsPage } from '../cartatags/cartatags';
+
+
 
 @Component({
   selector: 'page-home',
@@ -19,6 +23,7 @@ export class HomePage {
   camera(){
     let modal = this.modalCtrl.create( SubirPage );
     modal.present();
+
   }
 
   // Gallery method, used to be onButtonClicked

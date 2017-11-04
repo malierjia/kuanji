@@ -22,14 +22,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
 
-  <ion-card style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
-    <ion-slides>
-    <ion-slide>
-    <img [src]="imagenLink" alt="">
+<ion-card style="border-radius: 6px; box-shadow: 0 0px 1px rgba(0,0,0,0.3)" >
+<ion-slides class="slide-in" #slides pager ="true" autoplay="2000" speed="1000" (ionSlideDidChange)="slideChanged()" >
+
+ <ion-slide>
+  <img [src]="imagenLink" alt="">
     <ion-row >
-<ion-col text-center style="padding-top:8%">
+<ion-col text-center style="padding-top:5%; padding-bottom: 5%">
   <h1 style="text-align;justify;">{{ tagUnoLink}}</h1>
 </ion-col>
 
@@ -41,10 +42,10 @@
   </ion-row>
 </ion-slide>
 
-<ion-slide>
+<ion-slide class= "slide-in-right" >
 <img [src]="imagenLink" alt="">
 <ion-row >
-<ion-col text-center style="padding-top:8%">
+<ion-col text-center style="padding-top:5%; padding-bottom: 5%">
 <h1 style="text-align;justify;">{{ tagDosLink}}</h1>
 </ion-col>
 
@@ -60,7 +61,7 @@
 <ion-slide>
 <img [src]="imagenLink" alt="">
 <ion-row >
-<ion-col text-center style="padding-top:8%">
+<ion-col text-center style="padding-top:5%; padding-bottom: 5%">
 <h1 style="text-align;justify;">{{ tagTresLink}}</h1>
 </ion-col>
 
@@ -73,6 +74,27 @@
 </ion-slide>
 
 
+<!--
+<ion-slide *ngFor="let slide of slidem">
+
+<div style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)">
+<ion-row>
+<img [src]="slide.image"/>
+<ion-col text-center style="padding-top:8%">
+<h1 style="text-align;justify;" [innerHTML]="slide.title"></h1>
+</ion-col>
+<ion-col text-right style="padding-right:10%">
+<button ion-fab (click)="sonido()" color ="danger" style="float:right;">
+<ion-icon name="volume-up"></ion-icon>
+</button>
+</ion-col>
+</ion-row>
+
+</div>
+
+
+</ion-slide>
+-->
 
 </ion-slides>
 </ion-card>

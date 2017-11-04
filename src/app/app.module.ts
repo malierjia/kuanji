@@ -32,6 +32,10 @@ import { ImagePicker } from '@ionic-native/image-picker';
 //Servicios / providers
 import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivos';
 import { AlertController } from 'ionic-angular';
+import { StreamingMedia } from '@ionic-native/streaming-media';
+import { Slides } from 'ionic-angular';
+import { ViewChild} from '@angular/core';
+
 
 
 @NgModule({
@@ -66,19 +70,24 @@ import { AlertController } from 'ionic-angular';
     CatalogoPage,
     FelicidadesPage,
     TomarFotoPage,
-    SubirPage
+    SubirPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     ImagePicker,
+    Slides,
     CargaArchivosService,
     TextToSpeech,
+    StreamingMedia,
     AlertController,
+    ViewChild,
+
 
     {
       provide: ErrorHandler, useClass: IonicErrorHandler},
+
   ]
 })
 export class AppModule {}
