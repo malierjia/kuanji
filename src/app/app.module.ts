@@ -31,6 +31,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
 
 //Servicios / providers
 import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivos';
+import { AlertController } from 'ionic-angular';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { CargaArchivosService  } from '../providers/carga-archivos/carga-archivo
     ImagePicker,
     CargaArchivosService,
     TextToSpeech,
+    AlertController,
 
     {
       provide: ErrorHandler, useClass: IonicErrorHandler},
