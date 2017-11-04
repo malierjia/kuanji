@@ -10,6 +10,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 //servicios / providers
 import { CargaArchivosService } from '../../providers/carga-archivos/carga-archivos';
 import { HomePage } from '../home/home';
+import { FelicidadesPage } from '../felicidades/felicidades';
 
 
 @Component({
@@ -23,7 +24,10 @@ export class SubirPage {
 
   constructor(private viewCtrl: ViewController, private camera: Camera, private ToastCtlr: ToastController,
                         private platform: Platform, private imagePicker: ImagePicker, private _cas: CargaArchivosService,
-                        private loadingCtrl: LoadingController,public alertCtrl: AlertController, public modalCtrl: ModalController) {
+                        private loadingCtrl: LoadingController, public modalCtrl: ModalController) {
+
+this.mostrar_camara();
+
   }
 
   // method in charge of creating the link child for the db
@@ -44,7 +48,10 @@ export class SubirPage {
     this._cas.cargar_imagenes_firebase( archivo ).then(
       ( ) => {
           loader.dismiss();
-          this.cerrar_modal();
+          let modal = this.modalCtrl.create( FelicidadesPage );
+          modal.present();
+          //this.cerrar_modal();
+
       }, //cuando termine de subir
       ( error )=>{
         loader.dismiss();
@@ -52,33 +59,6 @@ export class SubirPage {
       }
      )
   }
-
-  public presentConfirm() {
-    const alert = this.alertCtrl.create({
-      title: 'Confirmar elección',
-      message: '¿Desea usar esta foto?',
-      buttons: [
-        {
-          text: 'X        ',
-          role: 'cancelar',
-          handler: () => {
-            console.log('Cancel clicked');
-            this.cancelar();
-          }
-        },
-        {
-          text:'✓        ',
-          handler: () => {
-           this.crear_link();
-            //console.log('Buy clicked');
-
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
-
 
   cerrar_modal() {
 
@@ -104,7 +84,8 @@ export class SubirPage {
       // If it's base64:
       this.imgPreview = `data:image/jpeg;base64,${imageData}`;
       this.img = imageData;
-      this.presentConfirm();
+     this.crear_link();
+
 
     }, (err) => {
       // Handle error
@@ -113,32 +94,6 @@ export class SubirPage {
     });
   }
 
-  seleccionar_imagenes() {
-    if (!this.platform.is("cordova")) {
-      this.mostrar_toast("Error, no estas desde un dispositivo movil");
-      return;
-    }
-
-    let opciones: ImagePickerOptions = {
-      maximumImagesCount: 1,
-      quality: 40,
-      outputType: 1
-    }
-
-    this.imagePicker.getPictures(opciones).then((results) => {
-
-      for (let img of results) {
-        this.imgPreview = 'data:image/jpeg;base64,' + img;
-        this.img = img;
-        this.presentConfirm();
-
-        break;
-      }
-    }, (err) => {
-      //this.mostrar_toast('Error seleccion: ' + err);
-    });
-
-  }
 
   private mostrar_toast(texto: string) {
     this.ToastCtlr.create({
@@ -147,10 +102,6 @@ export class SubirPage {
     }).present();
   }
 
-  public cancelar(){
-    let modal = this.modalCtrl.create( SubirPage );
-    modal.present();
-  }
 
 
 }

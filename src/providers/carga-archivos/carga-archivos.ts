@@ -29,8 +29,8 @@ export class CargaArchivosService {
       console.log('holi desde get all images');
       this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
           console.log(res);
-          this.mostrar_toast("Eeeeeexito");
-          this.mostrar_toast(res.toString());
+          //this.mostrar_toast("Eeeeeexito");
+          //this.mostrar_toast(res.toString());
 
           this.imagenes = res.json();
 
@@ -46,7 +46,7 @@ export class CargaArchivosService {
   cargar_imagenes_firebase( archivo:archivoSubir ){
 
     let promesa = new Promise( (resolve, reject)=>{
-      this.mostrar_toast('Iniciando la carga');
+    //  this.mostrar_toast('Iniciando la carga');
       //ref storage
       let storageRef = firebase.storage().ref();
       let nombreArchivo:string = new Date().valueOf().toString();  //el nombre es la fecha
@@ -59,7 +59,7 @@ export class CargaArchivosService {
 
           ( error )=> {
                   console.log("Error al subir ", JSON.stringify( error ));
-                  this.mostrar_toast( 'error al cargar: ' + JSON.stringify(error));
+                  //this.mostrar_toast( 'error al cargar: ' + JSON.stringify(error));
                   reject(error);
           }, //manejo de errores
           ( )=>{
@@ -80,19 +80,19 @@ export class CargaArchivosService {
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
     this.http.get('https://kuanji.herokuapp.com/predict?link='+url)
 	      .subscribe(res => {
-          this.mostrar_toast("Eeeeeexito");
+          //this.mostrar_toast("Eeeeeexito");
 	      	console.log(res.json());
 	      }, (err) => {
 	      	console.log(err);
 	      });
 }
 
-  private mostrar_toast( texto:string ){
-    this.toastCtrl.create({
-      message:texto,
-      duration:2500
-    }).present();
-  }
+//  private mostrar_toast( texto:string ){
+//    this.toastCtrl.create({
+//      message:texto,
+//      duration:2500
+//    }).present();
+//  }
 
 }
 

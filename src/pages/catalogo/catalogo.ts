@@ -27,10 +27,10 @@ sonidoClick: string;
   cargar_siguientes(infiniteScroll: any){
   console.log('sgtes');
   // this._cas.cargar_imagenes().then(
-  //   () => {
-  //     infiniteScroll.complete();
-  //   }
-  // );
+    // () => {
+    //   infiniteScroll.complete();
+     //}
+   //);
 
   var linksFromAPI = this._cas.cargar_imagenes();
 }
