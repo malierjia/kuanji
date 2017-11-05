@@ -15,25 +15,14 @@ import { CartatagsPage } from '../cartatags/cartatags';
 export class CatalogoPage {
 
 text:string;
-categorias: string = "cat1";
+categorias:string= "cat1";
 sonidoClick: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController, public modalCtrl: ModalController,
     private _cas: CargaArchivosService, private tts:TextToSpeech) {
-      this._cas.cargar_imagenes();
+      this._cas.cargar_por_tag_Uno();
   }
-
-  cargar_siguientes(infiniteScroll: any){
-  console.log('sgtes');
-  // this._cas.cargar_imagenes().then(
-    // () => {
-    //   infiniteScroll.complete();
-     //}
-   //);
-
-  var linksFromAPI = this._cas.cargar_imagenes();
-}
 
 async sonido( sonidoClick: string ): Promise<any>{
   try{
@@ -47,7 +36,7 @@ console.log(e);
 }
 
 pasarcarta(imagen:string, tagUno:string, tagDos:string, tagTres: string){
-  console.log('PASARCARTA OME OME');
+
   let modal = this.modalCtrl.create( CartatagsPage, {
     imagenLink: imagen,
     tagUnoLink: tagUno,

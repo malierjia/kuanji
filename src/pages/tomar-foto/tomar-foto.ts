@@ -19,7 +19,7 @@ export class TomarFotoPage {
   image: string = null;
 
 
-constructor(public navCtrl: NavController, public navParams: NavParams, 
+constructor(public navCtrl: NavController, public navParams: NavParams,
 private camera: Camera, public viewCtrl: ViewController, public modalCtrl: ModalController
    ) {this.getPicture();}
 

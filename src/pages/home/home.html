@@ -1,19 +1,15 @@
-<ion-header>
-    <ion-title>
-  </ion-title>
-
-</ion-header>
-
 <ion-content padding id="homecontent" class="no-scroll" text-center>
+
 
   <ion-row no-padding >
 <ion-col col-10>
-  <ul style="padding-top: 5%; margin: 0 auto;">
-  <ion-icon name="star-outline" style="padding-right: 8%; padding-left: 8%;"></ion-icon>
-  <ion-icon name="star-outline" style="padding-right: 8%;"></ion-icon>
-  <ion-icon name="star-outline" style="padding-right: 8%;"></ion-icon>
-  <ion-icon name="star-outline" style="padding-right: 8%;"></ion-icon>
-  <ion-icon name="star-outline" style="padding-right: 8%;"></ion-icon>
+
+  <ul style="padding-top:5%; margin: 0 auto;"  class="stars">
+    <ion-icon name="md-star" style="padding-right: 8%; padding-left:8%;"></ion-icon>
+    <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+    <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+    <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+    <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
       </ul>
     </ion-col>
   </ion-row>
@@ -24,7 +20,7 @@
 
 <div class="botones">
   <!-- button for Camera -->
-  <button ion-button block (click)="camera()" color ="danger" style="height:100px; padding: 5%">
+  <button ion-button block (click)="show_camera()" color ="danger" style="height:100px; padding: 5%">
     <img src="img/camara.png" alt="camara" style="width:35%;">
   </button>
 

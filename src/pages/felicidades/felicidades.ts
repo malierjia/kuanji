@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController,ModalController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { CatalogoPage } from '../catalogo/catalogo';
 
 /**
  * Generated class for the FelicidadesPage page.
@@ -22,8 +22,8 @@ export class FelicidadesPage {
           audio.play();
 
           setTimeout(() => {
-            //this.viewCtrl.dismiss();
-            let modal = this.modalCtrl.create( HomePage );
+            this.viewCtrl.dismiss();
+            let modal = this.modalCtrl.create( CatalogoPage );
             modal.present();
 
           },6000);

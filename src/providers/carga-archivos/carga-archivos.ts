@@ -17,12 +17,14 @@ export class CargaArchivosService {
 
   imagenes:any [] = [];
   imagenesBackwards:any [] = [];
-  // imagenes: Observable<any[]>;
+  imagesArray: any[] =[];
+
+  //
   lastKey:string = undefined;
 
 
   constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
-    this.cargar_imagenes()
+    //this.cargar_imagenes()
     }
 
   cargar_imagenes(){
@@ -33,14 +35,38 @@ export class CargaArchivosService {
           //this.mostrar_toast(res.toString());
 
           this.imagenes = res.json();
-
-        for(var counter=this.imagenes.length - 1; counter >= 0;counter--){
-            this.imagenesBackwards.push(this.imagenes[counter]);
-          }
+          this.imagenes = this.imagenes.reverse();
 
         }, (err) => {
           console.log(err);
         });
+}
+
+cargar_por_tag_Uno(){
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=masculino').subscribe(res => {
+this.imagenes =res.json();
+this.imagenes = this.imagenes.reverse();
+}, (err) => {
+  console.log(err);
+});
+}
+
+cargar_por_tag_Dos(){
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+this.imagenes =res.json();
+this.imagenes = this.imagenes.reverse();
+}, (err) => {
+  console.log(err);
+});
+}
+
+cargar_por_tag_Tres(){
+  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+this.imagenes =res.json();
+this.imagenes = this.imagenes.reverse();
+}, (err) => {
+  console.log(err);
+});
 }
 
   cargar_imagenes_firebase( archivo:archivoSubir ){

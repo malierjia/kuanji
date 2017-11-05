@@ -25,9 +25,7 @@ export class SubirPage {
   constructor(private viewCtrl: ViewController, private camera: Camera, private ToastCtlr: ToastController,
                         private platform: Platform, private imagePicker: ImagePicker, private _cas: CargaArchivosService,
                         private loadingCtrl: LoadingController, public modalCtrl: ModalController) {
-
 this.mostrar_camara();
-
   }
 
   // method in charge of creating the link child for the db
@@ -55,7 +53,7 @@ this.mostrar_camara();
       }, //cuando termine de subir
       ( error )=>{
         loader.dismiss();
-        //this.mostrar_toast("Error al cargar: " + error );
+        this.mostrar_toast("Error al cargar: " + error );
       }
      )
   }
@@ -84,7 +82,7 @@ this.mostrar_camara();
       // If it's base64:
       this.imgPreview = `data:image/jpeg;base64,${imageData}`;
       this.img = imageData;
-     this.crear_link();
+      this.crear_link();
 
 
     }, (err) => {

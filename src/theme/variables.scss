@@ -49,6 +49,36 @@ $colors: (
   border-radius: 45px;
 }
 
+@font-face {
+  font-family: 'HelveticaNeueRoman';
+  src: url("../assets/fonts/HelveticaNeueRoman.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueThin';
+  src: url("../assets/fonts/HelveticaNeueThin.otf");
+  //font-weight: normal;
+  //font-style: normal;
+
+}
+
+*{
+  font-family: 'HelveticaNeueThin';
+  letter-spacing: 1px;
+}
+
+h1,p
+{
+font-family: 'HelveticaNeueRoman';
+letter-spacing: 1px;
+}
+
+
+
+
+
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
