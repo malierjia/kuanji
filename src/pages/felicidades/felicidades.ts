@@ -18,7 +18,7 @@ export class FelicidadesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public modalCtrl: ModalController) {
 
-        var audio = new Audio('audio/Bomba_Pa_Siempre_Sting.mp3');
+        var audio = new Audio('assets/audio/Bomba_Pa_Siempre_Sting.mp3');
           audio.play();
 
           setTimeout(() => {
