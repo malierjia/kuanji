@@ -1,48 +1,68 @@
 page-felicidades {
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-  ion-content {
-    background: #06beb6 !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #48b1bf, #06beb6) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #48b1bf, #06beb6) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  #homecontent{
+      background-color: #FCBE00 ;
+      overflow:hidden;
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:center;
+  }
+
+  #mensaje{
+  background-color: #F3A703;
+  padding-top: 10%;
+  padding-bottom: 10%;
 
   }
 
-  body {
-    background: #3da1d1;
-    color: #fff;
-    overflow: hidden;
+  .no-scroll .scroll-content{
+       overflow: hidden;
   }
 
-  .medalla {
-      padding-top: 4rem !important;
+  .animated {
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
   }
 
-  h1 {
-    transform-origin: 50% 50%;
-    color: #FFFFFF;
-    font-size: 15vw;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    text-align: center;
-    width: 100%;
-
-    padding-top: 1rem !important;
+  .animated.infinite {
+    animation-iteration-count: infinite;
   }
 
-  .blob {
-    height: 50px;
-    width: 50px;
-    color: #ffcc00;
-    position: absolute;
-    top: 45%;
-    left: 45%;
-    z-index: 1;
-    font-size: 30px;
-    display: none;
+  .animated.flipOutX,
+  .animated.flipOutY,
+  .animated.bounceIn,
+  .animated.bounceOut {
+    animation-duration: .75s;
   }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translate3d(0, 100%, 0);
+      visibility: visible;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .slideInUp {
+    animation-name: slideInUp;
+  }
+
 }

@@ -1,81 +1,108 @@
 <ion-header>
   <ion-navbar>
-    <ion-row no-padding >
-<ion-col col-3>
-    <button ion-button (click)="cerrar_modal()" style="color: danger;">
-     <ion-icon name="arrow-back"></ion-icon>
+    <ion-row no-padding>
+      <ion-col col-3>
+        <button ion-button (click)="cerrar_modal()" style="color: danger;">
+  <ion-icon name="ios-arrow-back" style="color: white;"></ion-icon>
     </button>
-  </ion-col>
+      </ion-col>
 
       <ion-col col-9>
-      <ul style="">
-      <ion-icon name="star-outline" style="padding-right: 6%; padding-left:6%;"></ion-icon>
-      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
-      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
-      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
-      <ion-icon name="star-outline" style="padding-right: 6%;"></ion-icon>
-          </ul>
-        </ion-col>
+        <ul style="" class="stars">
+          <ion-icon name="md-star" style="padding-right: 8%; padding-left:8%;"></ion-icon>
+          <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+          <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+          <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+          <ion-icon name="md-star" style="padding-right: 8%;"></ion-icon>
+        </ul>
+      </ion-col>
 
-</ion-row >
+    </ion-row>
 
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
+  <img [src]="imagenLink" alt="">
+</ion-content>
 
-  <ion-card style="border-radius: 6px; box-shadow: 0 4px 5px rgba(0,0,0,0.3)" >
-    <ion-slides>
-    <ion-slide>
-    <img [src]="imagenLink" alt="">
-    <ion-row >
-<ion-col text-center style="padding-top:8%">
-  <h1 style="text-align;justify;">{{ tagUnoLink}}</h1>
-</ion-col>
+<!-- lo de abajo con los tags-->
+<ion-footer style="background-color: #EAEAF4;">
+  <ion-card no-padding style="border-radius: 8px; box-shadow: 0 0px 1px rgba(0,0,0,0.2); ">
 
-<ion-col text-right style="padding-right:10%">
-  <button ion-fab (click)="sonido(tagUnoLink)" color ="danger" style="float:right;">
+    <!--SLIDE 1 -->
+    <ion-slides class="slide-in" #slides pager="true" autoplay="2000" speed="1000" (ionSlideDidChange)="slideChanged()">
+
+      <ion-slide style="padding-top:4%; padding-bottom:10%">
+        <ion-row fixed style="align-items:center; display:flex; flex-direction: row; flex-wrap: nowrap; justify-content: center;
+align-items: center; align-content: center">
+
+          <ion-col col-7 text-center text-centered style="margin:auto; flex: 1 auto">
+            <h1 style="text-align:justify, center;">{{ tagUnoLink}}</h1>
+          </ion-col>
+
+          <ion-col col-3 text-left text-centered style=" margin:auto; flex: 2 auto">
+            <button ion-fab (click)="sonido(tagUnoLink)" color="danger" style="float:right;">
   <ion-icon name="volume-up"></ion-icon>
 </button>
-</ion-col>
-  </ion-row>
-</ion-slide>
+          </ion-col>
 
-<ion-slide>
-<img [src]="imagenLink" alt="">
-<ion-row >
-<ion-col text-center style="padding-top:8%">
-<h1 style="text-align;justify;">{{ tagDosLink}}</h1>
-</ion-col>
+          <ion-col col-2 text-right text-centered style=" float:right; padding-right: 8%; flex: 3 auto">
+            <ion-icon name="ios-arrow-forward" style="color: #30CDEE;"></ion-icon>
+          </ion-col>
 
-<ion-col text-right style="padding-right:10%">
-<button ion-fab (click)="sonido(tagDosLink)" color ="danger" style="float:right;">
+        </ion-row>
+      </ion-slide>
+
+      <!--SLIDE 2 -->
+      <ion-slide style="padding-top:4%; padding-bottom:10%">
+        <ion-row fixed style="align-items:center; display:flex; flex-direction: row; flex-wrap: nowrap; justify-content: center;
+align-items: center; align-content: center">
+
+          <ion-col col-1 text-right text-centered style="">
+            <ion-icon name="ios-arrow-back" style="color: #30CDEE;"></ion-icon>
+          </ion-col>
+
+          <ion-col col-7 text-center style="">
+            <h1 style="text-align:justify, center;">{{ tagDosLink}}</h1>
+            <!--{{ tagDosLink}}-->
+          </ion-col>
+
+          <ion-col col-3 style="float:left; ">
+            <button ion-fab (click)="sonido(tagDosLink)" color="danger" style="">
 <ion-icon name="volume-up"></ion-icon>
 </button>
-</ion-col>
-</ion-row>
-</ion-slide>
+          </ion-col>
 
+          <ion-col col-1 text-rigth style="float:right;">
+            <ion-icon name="ios-arrow-forward" style="color: #30CDEE;"></ion-icon>
+          </ion-col>
 
-<ion-slide>
-<img [src]="imagenLink" alt="">
-<ion-row >
-<ion-col text-center style="padding-top:8%">
-<h1 style="text-align;justify;">{{ tagTresLink}}</h1>
-</ion-col>
+        </ion-row>
+      </ion-slide>
 
-<ion-col text-right style="padding-right:10%">
-<button ion-fab (click)="sonido(tagTresLink)" color ="danger" style="float:right;">
-<ion-icon name="volume-up"></ion-icon>
-</button>
-</ion-col>
-</ion-row>
-</ion-slide>
+      <!--SLIDE 3 -->
+      <ion-slide style="padding-top:4%; padding-bottom:10%">
+        <ion-row fixed style="align-items:center; display:flex; flex-direction: row; flex-wrap: nowrap; justify-content: center;
+align-items: center; align-content: center">
 
+          <ion-col col-2 text-left text-centered style="float:left; padding-left:5%">
+            <ion-icon name="ios-arrow-back" style="color: #30CDEE;"></ion-icon>
+          </ion-col>
 
+          <ion-col col-7 text-center style="">
+            <h1 style="text-align:justify, center;">{{ tagTresLink}}</h1>
+          </ion-col>
 
-</ion-slides>
-</ion-card>
+          <ion-col col-3 text-left style="">
+            <button ion-fab (click)="sonido(tagTresLink)" color="danger" style="float:left;">
+    <ion-icon name="volume-up"></ion-icon>
+  </button>
+          </ion-col>
 
+        </ion-row>
+      </ion-slide>
 
-</ion-content>
+    </ion-slides>
+  </ion-card>
+</ion-footer>
