@@ -26,7 +26,6 @@ export class HomePage {
 
   // Cameta modal method, used to be mostrar_modal
   show_camera(){
-
     if (!this.platform.is("cordova")) {
       this.mostrar_toast("Error, no estas desde un dispositivo movil");
       return;
