@@ -24,13 +24,16 @@ export class CargaArchivosService {
   lastKey:string = undefined;
 
 
+// TODO: Necesito hacer que funcione en el portatil como local todo, debo preguntarle a manzano, ademas de eso aveiguar como vamos a decorar el salon
+
   constructor( public af:AngularFireDatabase, public  toastCtrl:ToastController, public http: Http ) {
     //this.cargar_imagenes()
     }
 
   cargar_imagenes(){
       console.log('holi desde get all images');
-      this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
+      // this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
+      this.http.get('http://localhost:5000/getAllLinks').subscribe(res => {
           console.log(res);
           this.mostrar_toast("Eeeeeexito");
         //  this.mostrar_toast(res.toString());
@@ -47,7 +50,8 @@ cargar_por_tag_Uno(){
   // starting with an empty array
   // this.imagenesBackwards = this.emptyArray;
 
-  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+  // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+  this.http.get('http://localhost:5000/getPersonas').subscribe(res => {
       console.log("holita desde encontrar beber");
       console.log(res.json());
 
@@ -60,7 +64,8 @@ cargar_por_tag_Uno(){
 
 cargar_por_tag_Dos(){
 
-  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=perro').subscribe(res => {
+  // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=perro').subscribe(res => {
+  this.http.get('http://localhost:5000/getComidas').subscribe(res => {
       console.log("holita desde encontrar gato");
       console.log(res.json());
 
@@ -73,7 +78,8 @@ cargar_por_tag_Dos(){
 
 cargar_por_tag_Tres(){
 
-  this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+  // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
+  this.http.get('http://localhost:5000/getAnimals').subscribe(res => {
       console.log("holita desde encontrar perro");
       console.log(res.json());
 
@@ -116,8 +122,6 @@ cargar_por_tag_Tres(){
 
 
   private crear_link_enBd( url:string ) {
-    //this.mostrar_toast(url)
-    // TODO: For some reason it isnt working with the firebase images but it does with other ones from the internet
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
     this.http.get('https://kuanji.herokuapp.com/predict?link='+url)
 	      .subscribe(res => {
