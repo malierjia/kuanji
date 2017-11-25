@@ -123,7 +123,7 @@ export class CargaArchivosService {
 
   private crear_link_enBd(url: string) {
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
-    this.http.get('https://kuanji.herokuapp.com/predict?link=' + url)
+    this.http.get('https://192.168.0.32:5000/predict?link=' + url)
       .subscribe(res => {
         this.mostrar_toast("Eeeeeexito");
         console.log(res.json());
