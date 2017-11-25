@@ -51,8 +51,9 @@ export class CargaArchivosService {
     // this.imagenesBackwards = this.emptyArray;
 
     // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
-    this.http.get('http://192.168.0.32:5000/getPersonas').subscribe(res => {
+    this.http.get('http://192.168.0.28:5000/getPersonas').subscribe(res => {
       console.log("holita desde encontrar beber");
+      console.log("192.168.0.28")
       console.log(res.json());
 
       this.imagenes = res.json();
@@ -65,7 +66,7 @@ export class CargaArchivosService {
   cargar_por_tag_Dos() {
 
     // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=perro').subscribe(res => {
-    this.http.get('http://192.168.0.32:5000/getComidas').subscribe(res => {
+    this.http.get('http://192.168.0.28:5000/getComidas').subscribe(res => {
       console.log("holita desde encontrar gato");
       console.log(res.json());
 
@@ -79,7 +80,7 @@ export class CargaArchivosService {
   cargar_por_tag_Tres() {
 
     // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
-    this.http.get('http://192.168.0.32:5000/getAnimals').subscribe(res => {
+    this.http.get('http://192.168.0.28:5000/getAnimals').subscribe(res => {
       console.log("holita desde encontrar perro");
       console.log(res.json());
 
@@ -123,7 +124,7 @@ export class CargaArchivosService {
 
   private crear_link_enBd(url: string) {
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
-    this.http.get('https://192.168.0.32:5000/predict?link=' + url)
+    this.http.get('http://192.168.0.28:5000/predict?link=' + url)
       .subscribe(res => {
         this.mostrar_toast("Eeeeeexito");
         console.log(res.json());
