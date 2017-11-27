@@ -23,17 +23,13 @@ export class CargaArchivosService {
   // imagenes: Observable<any[]>;
   lastKey: string = undefined;
 
-
-  // TODO: Necesito hacer que funcione en el portatil como local todo, debo preguntarle a manzano, ademas de eso aveiguar como vamos a decorar el salon
-
   constructor(public af: AngularFireDatabase, public toastCtrl: ToastController, public http: Http) {
     //this.cargar_imagenes()
   }
 
   cargar_imagenes() {
     console.log('holi desde get all images');
-    // this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
-    this.http.get('http://192.168.0.32:5000/getAllLinks').subscribe(res => {
+    this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
       console.log(res);
       this.mostrar_toast("Eeeeeexito");
       //  this.mostrar_toast(res.toString());
@@ -50,8 +46,7 @@ export class CargaArchivosService {
     // starting with an empty array
     // this.imagenesBackwards = this.emptyArray;
 
-    // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
-    this.http.get('http://192.168.0.28:5000/getPersonas').subscribe(res => {
+    this.http.get('https://kuanji.herokuapp.com/getPersonas').subscribe(res => {
       console.log("holita desde encontrar beber");
       console.log("192.168.0.28")
       console.log(res.json());
@@ -65,8 +60,7 @@ export class CargaArchivosService {
 
   cargar_por_tag_Dos() {
 
-    // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=perro').subscribe(res => {
-    this.http.get('http://192.168.0.28:5000/getComidas').subscribe(res => {
+    this.http.get('https://kuanji.herokuapp.com/getAnimals').subscribe(res => {
       console.log("holita desde encontrar gato");
       console.log(res.json());
 
@@ -79,8 +73,7 @@ export class CargaArchivosService {
 
   cargar_por_tag_Tres() {
 
-    // this.http.get('https://kuanji.herokuapp.com/getSpecificTag?tagSearch=mujer').subscribe(res => {
-    this.http.get('http://192.168.0.28:5000/getAnimals').subscribe(res => {
+    this.http.get('https://kuanji.herokuapp.com/getComidas').subscribe(res => {
       console.log("holita desde encontrar perro");
       console.log(res.json());
 
@@ -124,7 +117,7 @@ export class CargaArchivosService {
 
   private crear_link_enBd(url: string) {
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
-    this.http.get('http://192.168.0.28:5000/predict?link=' + url)
+    this.http.get('https://kuanji.herokuapp.com/predict?link=' + url)
       .subscribe(res => {
         this.mostrar_toast("Eeeeeexito");
         console.log(res.json());
