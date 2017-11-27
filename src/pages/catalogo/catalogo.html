@@ -61,6 +61,19 @@
         </ion-card-content>
       </ion-card>
     </ion-list>
+
+    <!-- cargar_imagenes() -->
+    <!--switch 3 - Todas-->
+    <ion-list *ngSwitchCase="'cat4'">
+      <ion-card *ngFor="let link of _cas.imagenes" type="button" (click)="pasarcarta(link.link, link.tag1, link.tag2, link.tag3)">
+        <img [src]="link.link" alt="">
+        <ion-card-content>
+          <ion-card-title>
+            {{ link.tag4 }}
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
   </div>
 
 </ion-content>
@@ -70,14 +83,20 @@
   <ion-toolbar color="primary">
     <ion-segment [(ngModel)]="categorias" color="dark">
       <!-- <ion-segment-button value="cat1" style="color:white;" (click)= "_cas.cargar_por_tag_Uno()"> -->
-      <ion-segment-button value="cat1" style="color:white;" (click)= "_cas.cargar_por_tag_Uno()">
+      <ion-segment-button value="cat1" style="color:white;" (click)="_cas.cargar_por_tag_Uno()">
         <ion-icon name="body"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="cat2" style="color:white;" (click)= "_cas.cargar_por_tag_Dos()">
-        <ion-icon name="analytics"></ion-icon>
+      <ion-segment-button value="cat2" style="color:white;" (click)="_cas.cargar_por_tag_Dos()">
+        <!--Basic: auto-select the icon based on the platform -->
+        <ion-icon name="paw"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="cat3" style="color:white;" (click)= "_cas.cargar_por_tag_Tres()">
-        <ion-icon name="boat"></ion-icon>
+      <ion-segment-button value="cat3" style="color:white;" (click)="_cas.cargar_por_tag_Tres()">
+        <!--Basic: auto-select the icon based on the platform -->
+        <ion-icon name="pizza"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="cat4" style="color:white;" (click)="_cas.cargar_imagenes()">
+        <!--Basic: auto-select the icon based on the platform -->
+        <ion-icon name="albums"></ion-icon>
       </ion-segment-button>
 
     </ion-segment>
