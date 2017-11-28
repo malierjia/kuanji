@@ -24,7 +24,10 @@ export class CargaArchivosService {
   lastKey: string = undefined;
 
   constructor(public af: AngularFireDatabase, public toastCtrl: ToastController, public http: Http) {
-    //this.cargar_imagenes()
+    this.cargar_por_tag_Uno()
+    // for (let i = 0; i < 5; i++) {
+    //   this.imagenes.push( this.imagenes.length );
+    // }
   }
 
   cargar_imagenes() {
@@ -132,6 +135,19 @@ export class CargaArchivosService {
       duration: 2500
     }).present();
   }
+
+  // doInfinite(infiniteScroll) {
+  //   console.log('Begin async operation');
+  //
+  //   setTimeout(() => {
+  //     for (let i = 0; i < 5; i++) {
+  //       this.imagenes.push( this.imagenes.length );
+  //     }
+  //
+  //     console.log('Async operation has ended');
+  //     infiniteScroll.complete();
+  //   }, 500);
+  // }
 
 }
 
