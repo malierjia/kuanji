@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { CatalogoPage } from '../catalogo/catalogo';
-
 /**
  * Generated class for the FelicidadesPage page.
  *
@@ -18,18 +17,16 @@ export class FelicidadesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public modalCtrl: ModalController) {
 
-        var audio = new Audio('assets/audio/Bomba_Pa_Siempre_Sting.mp3');
-          audio.play();
+    var audio = new Audio('assets/audio/Bomba_Pa_Siempre_Sting.mp3');
+    audio.play();
 
-          setTimeout(() => {
-            let modal = this.modalCtrl.create( CatalogoPage );
-            modal.present();
+    setTimeout(() => {
+      let modal = this.modalCtrl.create(CatalogoPage);
+      modal.present();
 
-          },6000);
-//this.streamingMedia.playAudio ('file://audio/Bomba_Pa_Siempre_Sting.mp3', options);
-}
+    }, 6000);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FelicidadesPage');
-
-    }
+  }
 }
