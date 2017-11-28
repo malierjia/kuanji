@@ -1,21 +1,26 @@
 page-home {
-
-  #homecontent{
-      background-color: #EAEAF4 ;
-      overflow:hidden;
-      background-repeat:no-repeat;
-      background-size:contain;
-      background-position:center;
-  }
-  .no-scroll .scroll-content{
-       overflow: hidden;
+  ion-icon {
+    font-size: 7Vw; //Preferred size here
+    padding-right: 9%;
   }
 
-  .stars{
+  #homecontent {
+    background-color: #EAEAF4;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .no-scroll .scroll-content {
+    overflow: hidden;
+  }
+
+  .stars {
     color: #F7CA18;
   }
 
-  .logo{
+  .logo {
     padding-top: 15%;
     padding-bottom: 15%;
   }
