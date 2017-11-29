@@ -19,41 +19,23 @@ export class CargaArchivosService {
   imagenesBackwards: any[] = [];
   imagesArray: any[] = [];
 
-
-  // imagenes: Observable<any[]>;
   lastKey: string = undefined;
 
   constructor(public af: AngularFireDatabase, public toastCtrl: ToastController, public http: Http) {
-    this.cargar_por_tag_Uno()
-    // for (let i = 0; i < 5; i++) {
-    //   this.imagenes.push( this.imagenes.length );
-    // }
+    this.cargar_por_tag_Uno();
   }
 
   cargar_imagenes() {
-    console.log('holi desde get all images');
     this.http.get('https://kuanji.herokuapp.com/getAllTags').subscribe(res => {
-      console.log(res);
-      this.mostrar_toast("Eeeeeexito");
-      //  this.mostrar_toast(res.toString());
-
       this.imagenes = res.json();
       this.imagenes = this.imagenes.reverse();
-
     }, (err) => {
       console.log(err);
     });
   }
 
   cargar_por_tag_Uno() {
-    // starting with an empty array
-    // this.imagenesBackwards = this.emptyArray;
-
     this.http.get('https://kuanji.herokuapp.com/getPersonas').subscribe(res => {
-      console.log("holita desde encontrar beber");
-      console.log("192.168.0.28")
-      console.log(res.json());
-
       this.imagenes = res.json();
       this.imagenes = this.imagenes.reverse();
     }, (err) => {
@@ -108,7 +90,6 @@ export class CargaArchivosService {
         }, //manejo de errores
         () => {
           let url = uploadTask.snapshot.downloadURL;
-          //  this.mostrar_toast('Imagen cargada con exito');
           this.crear_link_enBd(url);
           resolve();
         } //termino proceso
@@ -119,7 +100,6 @@ export class CargaArchivosService {
 
 
   private crear_link_enBd(url: string) {
-    // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
     this.http.get('https://kuanji.herokuapp.com/predict?link=' + url)
       .subscribe(res => {
         console.log(res.json());
@@ -134,19 +114,6 @@ export class CargaArchivosService {
       duration: 2500
     }).present();
   }
-
-  // doInfinite(infiniteScroll) {
-  //   console.log('Begin async operation');
-  //
-  //   setTimeout(() => {
-  //     for (let i = 0; i < 5; i++) {
-  //       this.imagenes.push( this.imagenes.length );
-  //     }
-  //
-  //     console.log('Async operation has ended');
-  //     infiniteScroll.complete();
-  //   }, 500);
-  // }
 
 }
 
