@@ -24,7 +24,7 @@ export class FelicidadesPage {
       let modal = this.modalCtrl.create(CatalogoPage);
       modal.present();
 
-    }, 6000);
+    }, 5000);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FelicidadesPage');

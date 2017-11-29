@@ -13,7 +13,7 @@ export class CargaArchivosService {
 
   private CARPETA_IMAGENES: string = '';
   private LINKS: string = 'links';
-  private linkAPI: string = 'https://kuanji.herokuapp.com/predict?link=';
+  private linkAPI: string = 'https://kuanji.herokuapp.com/';
 
   imagenes: any[] = [];
   imagenesBackwards: any[] = [];
@@ -32,7 +32,7 @@ export class CargaArchivosService {
 
   cargar_imagenes() {
     console.log('holi desde get all images');
-    this.http.get('https://kuanji.herokuapp.com/getAllLinks').subscribe(res => {
+    this.http.get('https://kuanji.herokuapp.com/getAllTags').subscribe(res => {
       console.log(res);
       this.mostrar_toast("Eeeeeexito");
       //  this.mostrar_toast(res.toString());
@@ -122,7 +122,6 @@ export class CargaArchivosService {
     // this.http.get('https://kuanji.herokuapp.com/predict?link='+url).do( res => this.mostrar_toast("Se subio la imagen"))
     this.http.get('https://kuanji.herokuapp.com/predict?link=' + url)
       .subscribe(res => {
-        this.mostrar_toast("Eeeeeexito");
         console.log(res.json());
       }, (err) => {
         console.log(err);
