@@ -38,6 +38,7 @@ export class CargaArchivosService {
     this.http.get('https://kuanji.herokuapp.com/getPersonas').subscribe(res => {
       this.imagenes = res.json();
       this.imagenes = this.imagenes.reverse();
+      console.log(this.imagenes);
     }, (err) => {
       console.log(err);
     });
@@ -46,11 +47,9 @@ export class CargaArchivosService {
   cargar_por_tag_Dos() {
 
     this.http.get('https://kuanji.herokuapp.com/getAnimals').subscribe(res => {
-      console.log("holita desde encontrar gato");
-      console.log(res.json());
-
       this.imagenes = res.json();
       this.imagenes = this.imagenes.reverse();
+      console.log(this.imagenes);
     }, (err) => {
       console.log(err);
     });
@@ -59,11 +58,9 @@ export class CargaArchivosService {
   cargar_por_tag_Tres() {
 
     this.http.get('https://kuanji.herokuapp.com/getComidas').subscribe(res => {
-      console.log("holita desde encontrar perro");
-      console.log(res.json());
-
       this.imagenes = res.json();
       this.imagenes = this.imagenes.reverse();
+      console.log(this.imagenes);
     }, (err) => {
       console.log(err);
     });
