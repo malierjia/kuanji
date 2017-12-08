@@ -1,3 +1,7 @@
+// Coded with love by Sebastian Velasco Borrero 2017
+
+
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController,ModalController } from 'ionic-angular';
